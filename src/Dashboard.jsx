@@ -11,10 +11,17 @@ function App() {
   return (
     <>
       <h1>Hello Dashboard</h1>
-      <div style={{ display: "flex", gap: "5px" }}>
-        <Link to={"/demo"}>Go to demo</Link>
-        <Link to={"/product"}>Go to Product</Link>
-        <button onClick={() => handleLogin()}>
+      <div className="flex items-center gap-4">
+        <Link to={"/demo"} className="text-blue-700 underline ">
+          Go to demo
+        </Link>
+        <Link to={"/product"} className="text-blue-700 underline ">
+          Go to Product
+        </Link>
+        <button
+          onClick={() => handleLogin()}
+          className="bg-red-500 py-1 px-3 text-white rounded"
+        >
           Button to navigate demo page
         </button>
       </div>
