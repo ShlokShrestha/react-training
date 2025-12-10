@@ -4,6 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Dashboard from "./Dashboard";
 import Demo from "./Demo";
+import ImageEditor from "./ImageEditor";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />,
+    {/* <RouterProvider router={router} />, */}
+    <ImageEditor />
   </StrictMode>
 );
