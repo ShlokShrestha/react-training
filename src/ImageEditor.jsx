@@ -195,16 +195,18 @@ export default function ImageEditor() {
                 </div>
               </div>
             )}
-            <div>
-              <h3 className="font-bold text-xl">Preview Image:</h3>
-              <div className="bg-black">
-                <CropperPreview
-                  ref={previewRef}
-                  className="m-auto"
-                  style={{ width: 400, height: 300 }}
-                />
+            {previewRef && (
+              <div>
+                <h3 className="font-bold text-xl">Preview Image:</h3>
+                <div className="bg-black">
+                  <CropperPreview
+                    ref={previewRef}
+                    className="m-auto"
+                    style={{ width: 400, height: 300 }}
+                  />
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
