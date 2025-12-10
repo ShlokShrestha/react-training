@@ -18,7 +18,6 @@ export default function ImageEditor() {
   const [croppedImage, setCroppedImage] = useState(null);
   const cropperRef = useRef(null);
   const previewRef = useRef(null);
-
   // Upload and compress before cropping
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
@@ -195,7 +194,7 @@ export default function ImageEditor() {
                 </div>
               </div>
             )}
-            {previewRef && (
+            {imageSrc && (
               <div>
                 <h3 className="font-bold text-xl">Preview Image:</h3>
                 <div className="bg-black">
