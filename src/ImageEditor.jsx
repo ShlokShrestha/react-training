@@ -113,27 +113,56 @@ export default function ImageEditor() {
             {imageSrc && (
               <div>
                 <h3 className="font-bold text-xl">Image for cropping</h3>
-                <div style={{ width: 400, height: 300 }}>
-                  <Cropper
-                    ref={cropperRef}
-                    src={imageSrc}
-                    onUpdate={onUpdate}
-                  />
-                </div>
-                <div>
-                  <div className="flex gap-2 mb-4">
-                    <button
-                      onClick={zoomIn}
-                      className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
-                    >
-                      <img src={ZoomInIcon} alt="ZoomInIcon" />
-                    </button>
-                    <button
-                      onClick={zoomOut}
-                      className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
-                    >
-                      <img src={ZoomOutIcon} alt="ZoomOutIcon" />
-                    </button>
+                <div className="relative">
+                  <div style={{ width: 400, height: 280 }}>
+                    <Cropper
+                      ref={cropperRef}
+                      src={imageSrc}
+                      onUpdate={onUpdate}
+                      className="w-full h-full"
+                    />
+                  </div>
+                  <div className="absolute top-0 -left-16">
+                    <div className="flex flex-col gap-2">
+                      <button
+                        onClick={zoomIn}
+                        className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
+                      >
+                        <img src={ZoomInIcon} alt="ZoomInIcon" />
+                      </button>
+                      <button
+                        onClick={zoomOut}
+                        className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
+                      >
+                        <img src={ZoomOutIcon} alt="ZoomOutIcon" />
+                      </button>
+                      <button
+                        onClick={() => move(0, -50)}
+                        className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
+                      >
+                        <img src={ArrowUpIcon} alt="ZoomInIcon" />
+                      </button>
+                      <button
+                        onClick={() => move(0, 50)}
+                        className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
+                      >
+                        <img src={ArrowDownIcon} alt="ZoomInIcon" />
+                      </button>
+                      <button
+                        onClick={() => move(-50, 0)}
+                        className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
+                      >
+                        <img src={ArrowLeftIcon} alt="ZoomInIcon" />
+                      </button>
+                      <button
+                        onClick={() => move(50, 0)}
+                        className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
+                      >
+                        <img src={ArrowRightIcon} alt="ZoomInIcon" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 my-4 ">
                     <button
                       onClick={() => flip(false, true)}
                       className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
@@ -147,51 +176,25 @@ export default function ImageEditor() {
                       <img src={HorizontalFlipIcon} alt="ZoomOutIcon" />
                     </button>
                     <button
-                      onClick={() => rotate(90)}
+                      onClick={() => rotate(45)}
                       className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
                     >
                       <img src={RotateRightIcon} alt="ZoomOutIcon" />
                     </button>
                     <button
-                      onClick={() => rotate(-90)}
+                      onClick={() => rotate(-45)}
                       className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
                     >
                       <img src={RotateLeftIcon} alt="ZoomOutIcon" />
                     </button>
                   </div>
-                  <div className="flex gap-2 mb-4">
-                    <button
-                      onClick={() => move(0, -50)}
-                      className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
-                    >
-                      <img src={ArrowUpIcon} alt="ZoomInIcon" />
-                    </button>
-                    <button
-                      onClick={() => move(0, 50)}
-                      className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
-                    >
-                      <img src={ArrowDownIcon} alt="ZoomInIcon" />
-                    </button>
-                    <button
-                      onClick={() => move(-50, 0)}
-                      className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
-                    >
-                      <img src={ArrowLeftIcon} alt="ZoomInIcon" />
-                    </button>
-                    <button
-                      onClick={() => move(50, 0)}
-                      className="bg-gray-200 text-white px-4 py-2 rounded cursor-pointer"
-                    >
-                      <img src={ArrowRightIcon} alt="ZoomInIcon" />
-                    </button>
-                  </div>
-                  <button
-                    onClick={handleCrop}
-                    className="bg-black text-white px-4 py-2 rounded"
-                  >
-                    Save Cropped Image
-                  </button>
                 </div>
+                <button
+                  onClick={handleCrop}
+                  className="bg-black text-white px-4 py-2 rounded"
+                >
+                  Save Cropped Image
+                </button>
               </div>
             )}
             {imageSrc && (

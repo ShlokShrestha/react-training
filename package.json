@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cropper/element-canvas": "^2.1.0",
     "@tailwindcss/vite": "^4.1.12",
     "browser-image-compression": "^2.0.2",
+    "cropperjs": "^2.1.0",
     "react": "^19.1.1",
     "react-advanced-cropper": "^0.20.1",
     "react-dom": "^19.1.1",
